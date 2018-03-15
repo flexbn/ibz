@@ -32,5 +32,7 @@ qrc_*.cpp
 .DS_Store
 build
 
+# Windows stuff
+release
 !src/leveldb-*/Makefile
 src/leveldb/build_config.mk

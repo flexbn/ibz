@@ -45,7 +45,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile quebecoin-0.8.6.1-win32-setup.exe
+OutFile quebecoin-0.8.6.2-win32-setup.exe
 InstallDir $PROGRAMFILES\Quebecoin
 CRCCheck on
 XPStyle on
@@ -71,8 +71,6 @@ Section -Main SEC0000
     File /oname=readme.txt ../doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
     File ../src/quebecoind.exe
-    SetOutPath $INSTDIR\src
-    File /r /x *.exe /x *.o ../src\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 

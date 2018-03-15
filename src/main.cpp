@@ -1123,8 +1123,19 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
                 nSubsidy = 13 * COIN;
 
 
-    // Subsidy is cut in half every 420480 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 420480); // Quebecoin: 420480 blocks in ~2 years
+    // Subsidy is cut in half every 420480 blocks, which will occur approximately every 2 years
+    // for the first 4 years and after that, every year (or every 210240 block after the first 840960)
+    if (!fTestNet) {
+        if (nHeight +1 < 840960) 
+            nSubsidy >>= (nHeight / 420480); // Quebecoin: 420480 blocks in ~2 years
+        else
+            nSubsidy >>= ((nHeight / 210240) -2); // Subsudy halving every  year
+    } else {
+        if (nHeight +1 < 400 ) 
+            nSubsidy >>= (nHeight / 200); // Subsudy halving every 200 blocks
+        else
+            nSubsidy >>= ((nHeight / 100) -2); // Subsudy halving every 100 blocks
+    }
 
     return nSubsidy + nFees;
 }

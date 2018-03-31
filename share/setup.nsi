@@ -5,7 +5,7 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.9.0.0
+!define VERSION 0.9.0.2
 !define COMPANY "Quebecoin project"
 !define URL http://www.quebecoin.org/
 
@@ -45,13 +45,13 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile quebecoin-0.8.6.2-win32-setup.exe
+OutFile quebecoin-0.9.0.2-win32-setup.exe
 InstallDir $PROGRAMFILES\Quebecoin
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
-VIProductVersion 0.9.0.0
+VIProductVersion 0.9.0.2
 VIAddVersionKey ProductName Quebecoin
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
